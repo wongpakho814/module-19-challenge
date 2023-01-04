@@ -28,10 +28,10 @@ export const getDb = async () => {
   const contactDb = await openDB("jate", 1);
   const tx = contactDb.transaction("jate", "readonly");
   const store = tx.objectStore("jate");
-  const request = store.getAll()
+  const request = store.getAll();
   const result = await request;
-  console.log("result - singular", result);
-  return result; 
+  console.log("result.value", result?.value);
+  return result?.value; 
 };
 
 initdb(); 
